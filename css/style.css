@@ -1,13 +1,18 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* General */
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+/* Header */
 header {
     display: flex;
     align-items: center;
@@ -20,17 +25,44 @@ h2 {
     margin-bottom: 0px;
 }
 
+
+/* TASK List */
 .todo-list {
     margin: 50px auto;
     max-width: 600px;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: aqua;
 }
 
 .todo-list li {
     border-bottom: 2px solid white;
-    margin: 10px 0px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
+}
+
+.icons i {
+    margin-right: 5px;
+}
+
+
+/* Input TASK */
+.input-task {
+    display: flex;
+}
+
+.input-task input {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    margin-right: 10px;
+}
+
+.input-task button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
 }
