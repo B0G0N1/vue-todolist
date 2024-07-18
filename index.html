@@ -19,7 +19,7 @@
                     <div class="todo-list">
                         <!-- Lista ToDo -->
                         <ul class="list-unstyled">
-                            <li v-for="(task, index) in todolist" :id="task.id" :done="task.done">
+                            <li v-for="task in todolist" :id="task.id" :done="task.done">
                                 <div class="content text">
                                     <p>{{ task.text }}</p>
                                 </div>  
@@ -30,8 +30,8 @@
                             </li>
                         </ul>
                         <div class="input-task">
-                            <input type="text" name="task" placeholder="Inserisci un nuovo Task">
-                            <button>Aggiungi</button>
+                            <input  v-model="task" type="text" placeholder="Inserisci un nuovo Task">
+                            <button @click="addTask">Aggiungi</button>
                         </div>
                     </div>
                 </div>
