@@ -82,3 +82,7 @@ i {
 .green {
     color: green;
 }
+
+.strikethrough {
+    text-decoration: line-through;
+}
