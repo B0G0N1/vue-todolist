@@ -9,7 +9,7 @@
     <title>Vue To Do List</title>
 </head>
 <body>
-    <header>
+    <header class="d-flex align-items-center">
         <h2>Boolean ToDoList</h2>
     </header>
     <main>
@@ -17,21 +17,29 @@
             <div class="row">
                 <div class="col-12">
                     <div class="todo-list">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <p>Task counter: {{ this.todolist.length }}</p>
+                            <button class="btn btn-danger" @click="deleteAllTasks">Delete All Task</button>
+                        </div>
                         <ul class="list-unstyled">
-                            <li v-for="(item, index) in todolist" :key="index">
-                                <div class="content text">
-                                    <p :class="{ strikethrough: !item.done }">{{ item.text }}</p>
+                            <li class="d-flex justify-content-between" v-for="(item, index) in todolist" :key="index">
+                                <div class="d-flex">
+                                    <div class="me-2 mb-2">
+                                        <i v-if="item.done"  class="fa-regular fa-circle-check green"></i>
+                                        <i v-else class="fa-regular fa-circle-xmark black"></i>
+                                    </div>
+                                    <div>
+                                        <p @click="done(index)" :class="{ strikethrough: item.done }">{{ item.text }}</p>
+                                    </div>
                                 </div>
-                                <div class="content icons">
-                                    <i v-if="item.done" class="fa-regular fa-circle-check green"></i>
-                                    <i v-else class="fa-regular fa-circle-xmark red"></i>
+                                <div>
                                     <i class="fa-solid fa-trash-can red" @click="removeTask(index)"></i>
                                 </div>
                             </li>
                         </ul>
-                        <div class="input-task">
+                        <div class="input-task mb-2">
                             <input v-model="task" type="text" placeholder="Inserisci un nuovo Task">
-                            <button @click="addTask">Aggiungi</button>
+                            <button class="btn btn-primary" @click="addTask">Aggiungi</button>
                         </div>
                     </div>
                 </div>

@@ -45,6 +45,14 @@ createApp({
         },
         removeTask(index) {
             this.todolist.splice(index, 1);
+        },
+        deleteAllTasks() {
+            if (confirm("Sei sicuro di voler eliminare tutti i Task?")) {
+                this.todolist = [];
+            }
+        },        
+        done(index) {
+            this.todolist[index].done = !this.todolist[index].done;
         }
     }
 }).mount('#app');
