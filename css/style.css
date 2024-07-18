@@ -66,3 +66,19 @@ h2 {
     border-radius: 10px;
     background-color: white;
 }
+
+
+i {
+    padding: 8px 8px;
+    border-radius: 10px;
+    background-color: rgba(128, 128, 128, 0.5); 
+}
+
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}

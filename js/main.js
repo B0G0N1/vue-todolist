@@ -3,7 +3,6 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            // Creato una ToDoList
             todolist: [
                 {
                     text: "Passa l'aspirapolvere e spolvera i mobili",
@@ -14,7 +13,7 @@ createApp({
                     done: false
                 },
                 {
-                    text: "Dedica almeno un'ora alla lettura di un buon libr",
+                    text: "Dedica almeno un'ora alla lettura di un buon libro",
                     done: false
                 },
                 {
@@ -38,12 +37,14 @@ createApp({
         };
     },
     methods: {
-        addTask () {
+        addTask() {
             if (this.task.trim() !== '') {
                 this.todolist.push({ text: this.task, done: false });
                 this.task = '';
-                console.log(this.todolist);
             }
+        },
+        removeTask(index) {
+            this.todolist.splice(index, 1);
         }
     }
 }).mount('#app');

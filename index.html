@@ -17,20 +17,19 @@
             <div class="row">
                 <div class="col-12">
                     <div class="todo-list">
-                        <!-- Lista ToDo -->
                         <ul class="list-unstyled">
-                            <li v-for="task in todolist" :id="task.id" :done="task.done">
+                            <li v-for="(item, index) in todolist" :key="index">
                                 <div class="content text">
-                                    <p>{{ task.text }}</p>
-                                </div>  
+                                    <p>{{ item.text }}</p>
+                                </div>
                                 <div class="content icons">
-                                    <i class="fa-regular fa-circle-check"></i>
-                                    <i class="fa-solid fa-trash-can"></i>
+                                    <i class="fa-regular fa-circle-check green"></i>
+                                    <i class="fa-solid fa-trash-can red" @click="removeTask(index)"></i>
                                 </div>
                             </li>
                         </ul>
                         <div class="input-task">
-                            <input  v-model="task" type="text" placeholder="Inserisci un nuovo Task">
+                            <input v-model="task" type="text" placeholder="Inserisci un nuovo Task">
                             <button @click="addTask">Aggiungi</button>
                         </div>
                     </div>
@@ -38,10 +37,6 @@
             </div>
         </div>
     </main>
-
-
-
-    <!-- Collegato Script -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/main.js" type="text/javascript"></script>
 </body>
