@@ -17,27 +17,33 @@
             <div class="row">
                 <div class="col-12">
                     <div class="todo-list">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <p>Task counter: {{ this.todolist.length }}</p>
-                            <button class="btn btn-danger" @click="deleteAllTasks">Delete All Task</button>
+                        <!-- Contatore dei task e pulsante per cancellare tutti i task -->
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <p>Task counter: {{ todolist.length }}</p>
+                            <button class="btn btn-danger" @click="deleteAllTasks">Delete All Tasks</button>
                         </div>
+                        <!-- Lista dei task -->
                         <ul class="list-unstyled">
                             <li class="d-flex justify-content-between" v-for="(item, index) in todolist" :key="index">
                                 <div class="d-flex">
                                     <div class="me-2 mb-2">
-                                        <i v-if="item.done"  class="fa-regular fa-circle-check green"></i>
+                                        <!-- Icona che indica lo stato del task -->
+                                        <i v-if="item.done" class="fa-regular fa-circle-check green"></i>
                                         <i v-else class="fa-regular fa-circle-xmark black"></i>
                                     </div>
                                     <div>
+                                        <!-- Testo del task con barratura se completato -->
                                         <p @click="done(index)" :class="{ strikethrough: item.done }">{{ item.text }}</p>
                                     </div>
                                 </div>
+                                <!-- Pulsante per rimuovere il task -->
                                 <div>
                                     <i class="fa-solid fa-trash-can red" @click="removeTask(index)"></i>
                                 </div>
                             </li>
                         </ul>
-                        <div class="input-task mb-2">
+                        <!-- Input per aggiungere un nuovo task -->
+                        <div class="input-task mt-4">
                             <input v-model="task" type="text" placeholder="Inserisci un nuovo Task">
                             <button class="btn btn-primary" @click="addTask">Aggiungi</button>
                         </div>
@@ -46,7 +52,9 @@
             </div>
         </div>
     </main>
+    <!-- Includi la libreria Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Includi il file JavaScript personalizzato -->
     <script src="./js/main.js" type="text/javascript"></script>
 </body>
 </html>

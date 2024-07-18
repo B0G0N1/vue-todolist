@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            // Lista iniziale dei task
             todolist: [
                 {
                     text: "Passa l'aspirapolvere e spolvera i mobili",
@@ -33,24 +34,28 @@ createApp({
                     done: true
                 },
             ],
-            task: ""
+            task: "" // Input per il nuovo task
         };
     },
     methods: {
+        // Aggiungi un nuovo task alla lista
         addTask() {
             if (this.task.trim() !== '') {
                 this.todolist.push({ text: this.task, done: false });
-                this.task = '';
+                this.task = ''; // Pulisci l'input
             }
         },
+        // Rimuovi un task in base all'indice
         removeTask(index) {
             this.todolist.splice(index, 1);
         },
+        // Cancella tutti i task
         deleteAllTasks() {
             if (confirm("Sei sicuro di voler eliminare tutti i Task?")) {
                 this.todolist = [];
             }
-        },        
+        },
+        // Cambia lo stato di completamento di un task
         done(index) {
             this.todolist[index].done = !this.todolist[index].done;
         }
